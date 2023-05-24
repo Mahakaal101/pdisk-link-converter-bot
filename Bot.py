@@ -8,12 +8,12 @@ from bs4 import BeautifulSoup
 import requests
 import re
 
-API_ID = environ.get('API_ID')
-API_HASH = environ.get('API_HASH')
-BOT_TOKEN = environ.get('BOT_TOKEN')
-PDISK_API_KEY = environ.get('PDISK_API_KEY')
+API_ID = environ.get('API_ID','22710277')
+API_HASH = environ.get('API_HASH','723eb90b39789f313564d51da18b2182')
+BOT_TOKEN = environ.get('BOT_TOKEN', '6245070784:AAF5UVqNiOVchK4fTvlCrKeFStogaljQZAw')
+PDISK_API_KEY = environ.get('PDISK_API_KEY','1359683cbkaot08i05oc5')
 THUMB_URL = environ.get('THUMB_URL', 'https://telegra.ph/file/1181d9119a13988dfe29c.jpg')
-CHANNEL = environ.get('CHANNEL')
+CHANNEL = environ.get('CHANNEL','-1001854823019')
 bot = Client('pdisk bot',
              api_id=API_ID,
              api_hash=API_HASH,
@@ -91,7 +91,7 @@ async def get_ptitle(url):
     v_len = len(v_id)
     v_id = v_id[1:v_len - 2]
 
-v_url = 'https://www.pdisks.com/share-video?videoid=' + v_id
+v_url = 'https://pdisk.pro/' + v_id
     res = [str, v_url]
     return res
 
@@ -111,7 +111,7 @@ async def pdisk_up(link):
     data = dict(data)
     print(data)
     v_id = data['data']['item_id']
-    v_url = 'https://www.pdisks.com/share-video?videoid=' + v_id
+    v_url = 'https://pdisk.pro/' + v_id
     return (v_url)
 
 
